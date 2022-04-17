@@ -5,8 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="4.1-Data\" />
-    <Folder Include="4.2-CrossCutting\" />
+    <Folder Include="CrossCutting\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RestApiModelDDD.Domain\RestApiModelDDD.Domain.csproj" />
   </ItemGroup>
 
 </Project>

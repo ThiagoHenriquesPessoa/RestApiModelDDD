@@ -2,7 +2,7 @@
 
 namespace RestApiModelDDD.Domain.Core.Interfaces.Repositorys
 {
-    public interface IRepositoyBase<T> where T : class
+    public interface IRepositoryBase<T> where T : class
     {
         void Add(T obj);
 

@@ -6,7 +6,10 @@
 
   <ItemGroup>
     <Folder Include="Interfaces\Services\" />
-    <Folder Include="Interfaces\Repositorys\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RestApiModelDDD.Domain\RestApiModelDDD.Domain.csproj" />
   </ItemGroup>
 
 </Project>

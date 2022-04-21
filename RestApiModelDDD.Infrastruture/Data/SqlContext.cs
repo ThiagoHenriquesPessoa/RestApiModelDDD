@@ -11,7 +11,10 @@ namespace RestApiModelDDD.Infrastruture.Data
         {
         }
 
-        public SqlContext(DbContextOptions<SqlContext>options) : base(options) {}
+        public SqlContext(DbContextOptions<SqlContext> options) : base(options)
+        {
+        }
+
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Produto> Produtos { get; set; }
 
@@ -27,7 +30,6 @@ namespace RestApiModelDDD.Infrastruture.Data
                 {
                     entry.Property("DataCadastro").IsModified = false;
                 }
-
             }
             return base.SaveChanges();
         }

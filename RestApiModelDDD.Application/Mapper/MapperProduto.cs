@@ -1,12 +1,12 @@
 ﻿using RestApiModelDDD.Application.Dtos;
+using RestApiModelDDD.Application.Interface;
 using RestApiModelDDD.Domain.Entitys;
-using RestApiModelDDD.Infrastruture.CrossCutting.Interface;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RestApiModelDDD.Infrastruture.CrossCutting.Mapper
+namespace RestApiModelDDD.Application.Mapper
 {
-    internal class MapperProduto : IMapperProduto
+    public class MapperProduto : IMapperProduto
     {
         private IEnumerable<ProdutoDto> produtoDto = new List<ProdutoDto>();
 

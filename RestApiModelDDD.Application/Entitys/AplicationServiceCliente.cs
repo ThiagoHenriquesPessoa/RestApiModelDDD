@@ -1,40 +1,49 @@
 ﻿using RestApiModelDDD.Application.Dtos;
 using RestApiModelDDD.Application.Interface;
 using RestApiModelDDD.Domain.Core.Interfaces.Services.Interface;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestApiModelDDD.Application.Entitys
 {
     public class AplicationServiceCliente : IAplicationServiceCliente
     {
         private readonly IServiceCliente _serviceCliente;
+        private readonly IMapperCliente _mapperCliente;
+
+        public AplicationServiceCliente(IServiceCliente serviceCliente, IMapperCliente mapperCliente)
+        {
+            _serviceCliente = serviceCliente;
+            _mapperCliente = mapperCliente;
+        }
+
         public void Add(ClienteDto clienteDto)
         {
-            throw new NotImplementedException();
+            var cliente = _mapperCliente.MapperDtoToEntity(clienteDto);
+            _serviceCliente.Add(cliente);
         }
 
         public IEnumerable<ClienteDto> GetAll()
         {
-            throw new NotImplementedException();
+            var clientes = _serviceCliente.GetAll();
+            return _mapperCliente.MapperListClienteDto(clientes);
         }
 
         public ClienteDto GetById(int id)
         {
-            throw new NotImplementedException();
+            var cliente = _serviceCliente.GetById(id);
+            return _mapperCliente.MapperEntityToDto(cliente);
         }
 
         public void Remove(ClienteDto clienteDto)
         {
-            throw new NotImplementedException();
+            var cliente = _mapperCliente.MapperDtoToEntity(clienteDto);
+            _serviceCliente.Remove(cliente);
         }
 
         public void Update(ClienteDto clienteDto)
         {
-            throw new NotImplementedException();
+            var cliente = _mapperCliente.MapperDtoToEntity(clienteDto);
+            _serviceCliente.Update(cliente);
         }
     }
 }

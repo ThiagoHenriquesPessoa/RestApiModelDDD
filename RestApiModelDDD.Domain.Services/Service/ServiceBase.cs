@@ -28,9 +28,9 @@ namespace RestApiModelDDD.Domain.Services.Service
             return _repository.GetById(id);
         }
 
-        public void Remove(T obj)
-        {
-            _repository.Remove(obj);
+        public void Remove(int id)
+        {            
+            _repository.Remove(id);
         }
 
         public void Update(T obj)

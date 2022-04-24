@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RestApiModelDDD.Domain.Entitys
+namespace RestApiModelDDD.Application.Dtos
 {
     public class Entity
     {
@@ -8,8 +8,8 @@ namespace RestApiModelDDD.Domain.Entitys
 
         public Entity()
         {
-            Random novo = new Random();
-            Id = novo.Next(4,5);
+            Random id = new Random();
+            Id = id.Next(5);
         }
     }
 }

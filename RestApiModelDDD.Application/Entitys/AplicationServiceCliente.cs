@@ -1,6 +1,8 @@
 ﻿using RestApiModelDDD.Application.Dtos;
 using RestApiModelDDD.Application.Interface;
 using RestApiModelDDD.Domain.Core.Interfaces.Services.Interface;
+using RestApiModelDDD.Domain.Entitys;
+using System;
 using System.Collections.Generic;
 
 namespace RestApiModelDDD.Application.Entitys
@@ -18,7 +20,9 @@ namespace RestApiModelDDD.Application.Entitys
 
         public void Add(ClienteDto clienteDto)
         {
-            var cliente = _mapperCliente.MapperDtoToEntity(clienteDto);
+            Cliente cliente = _mapperCliente.MapperDtoToEntity(clienteDto);
+            cliente.DataCadastro = DateTime.Now;
+            cliente.IsAtivo = true;
             _serviceCliente.Add(cliente);
         }
 
@@ -34,10 +38,9 @@ namespace RestApiModelDDD.Application.Entitys
             return _mapperCliente.MapperEntityToDto(cliente);
         }
 
-        public void Remove(ClienteDto clienteDto)
+        public void Remove(int id)
         {
-            var cliente = _mapperCliente.MapperDtoToEntity(clienteDto);
-            _serviceCliente.Remove(cliente);
+            _serviceCliente.Remove(id);
         }
 
         public void Update(ClienteDto clienteDto)

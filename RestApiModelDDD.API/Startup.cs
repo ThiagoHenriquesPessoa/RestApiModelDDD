@@ -24,10 +24,10 @@ namespace RestApiModelDDD.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = Configuration["ConnectionStrings:DefaultConnection"];
-            services.AddDbContext<SqlContext>(option => option.UseSqlServer(connection));
+            services.AddDbContext<SqlContext>(options =>
+                      options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RestApiModelDDD.API", Version = "v1" });

@@ -59,13 +59,13 @@ namespace RestApiModelDDD.API.Controllers
             }
         }
 
-        [HttpDelete]
-        public ActionResult Delete([FromBody] ClienteDto clienteDto)
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id)
         {
             try
             {
-                if (clienteDto == null) return NotFound();
-                _aplicationServiceCliente.Remove(clienteDto);
+                if (id == 0) return NotFound();
+                _aplicationServiceCliente.Remove(id);
                 return Ok("Cliente removido com sucesso!");
             }
             catch (Exception ex)

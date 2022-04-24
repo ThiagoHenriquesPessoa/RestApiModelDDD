@@ -1,6 +1,7 @@
 ﻿using RestApiModelDDD.Application.Dtos;
 using RestApiModelDDD.Application.Interface;
 using RestApiModelDDD.Domain.Core.Interfaces.Services.Interface;
+using RestApiModelDDD.Domain.Entitys;
 using System.Collections.Generic;
 
 namespace RestApiModelDDD.Application.Entitys
@@ -18,7 +19,7 @@ namespace RestApiModelDDD.Application.Entitys
 
         public void Add(ProdutoDto produtoDto)
         {
-            var produto = _mapperProduto.MapperDtoToEntity(produtoDto);
+            Produto produto = _mapperProduto.MapperDtoToEntity(produtoDto);
             _serviceProduto.Add(produto);
         }
 
@@ -34,10 +35,9 @@ namespace RestApiModelDDD.Application.Entitys
             return _mapperProduto.MapperEntityToDto(produto);
         }
 
-        public void Remove(ProdutoDto produtoDto)
+        public void Remove(int id)
         {
-            var produto = _mapperProduto.MapperDtoToEntity(produtoDto);
-            _serviceProduto.Remove(produto);
+            _serviceProduto.Remove(id);
         }
 
         public void Update(ProdutoDto produtoDto)

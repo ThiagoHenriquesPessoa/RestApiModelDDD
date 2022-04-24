@@ -8,7 +8,7 @@ namespace RestApiModelDDD.Domain.Core.Interfaces.Services.Interface
 
         void Update(T obj);
 
-        void Remove(T obj);
+        void Remove(int id);
 
         IEnumerable<T> GetAll();
 

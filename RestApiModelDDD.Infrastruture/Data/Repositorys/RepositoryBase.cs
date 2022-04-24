@@ -19,7 +19,7 @@ namespace RestApiModelDDD.Infrastruture.Data.Repositorys
         {
             try
             {
-                _sqlContext.Set<T>().Add(obj);
+                _sqlContext.Add(obj);
                 _sqlContext.SaveChanges();
             }
             catch (Exception ex)
@@ -38,10 +38,11 @@ namespace RestApiModelDDD.Infrastruture.Data.Repositorys
             return _sqlContext.Set<T>().Find(id);
         }
 
-        public void Remove(T obj)
+        public void Remove(int id)
         {
             try
             {
+                var obj = _sqlContext.Set<T>().Find(id);
                 _sqlContext.Set<T>().Remove(obj);
                 _sqlContext.SaveChanges();
             }
